@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache Hax: Profit Allocation</title>
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #808ea4; /* Background color */
+            color: #212121; /* Text color */
+        }
+
+        h1 {
+            color: #00CE7C; /* Header text color */
+        }
+
+        /* Input field styling */
+        .form-control {
+            background-color: #F2F2F2; /* Input background color */
+            color: #212121; /* Input text color */
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #F2F2F2; /* Card background color */
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #00CE7C; /* Card header background color */
+            color: #F2F2F2; /* Card header text color */
+        }
+
+        .card-body {
+            color: #212121; /* Card body text color */
+        }
+
+        /* Chart canvas styling */
+        #pieChart {
+            background-color: #F2F2F2; /* Chart background color */
+        }
+
+        /* Center the canvas */
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px; /* Adjust the height as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">
+            <img src="./images/cache-hax-logo.png" width="150px" alt="" style="border-radius: 25%;">
+        </h1>
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3 text-center">
+                <div class="form-group">
+                    <label for="salaryProfit">Please enter your profit:</label>
+                    <input type="number" class="form-control" id="salaryProfit">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Add Chart.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <!-- Add chartjs-plugin-datalabels plugin -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+    <script>
+        // Get references to the input field and canvas element
+        const salaryProfitInput = document.getElementById('salaryProfit');
+        const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
+
+        // Function to generate random colors
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Initialize the pie chart with initial data
+        const pieChart = new Chart(pieChartCanvas, {
+            type: 'pie',
+            data: {
+                labels: ['Fixed Costs (50%)', 'Guilt-free Spending (35%)', 'Savings (5%)', 'Investments (10%)'],
+                datasets: [{
+                    data: [50, 35, 5, 10], // Initial distribution percentages
+                    backgroundColor: ['#FF5733', '#33FF57', '#338AFF', '#FF33C1']
+                }]
+            },
+            options: {
+                responsive: false, // Disable responsiveness
+                plugins: {
+                    datalabels: {
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 16
+                        },
+                        formatter: (value, context) => {
+                            return context.chart.data.labels[context.dataIndex] + ': ' + value + '%';
+                        }
+                    },
+                },
+                legend: {
+                    display: false, // Hide the default legend
+                },
+                tooltips: {
+                    callbacks: {
+                        label: (tooltipItem, data) => {
+                            const dataset = data.datasets[tooltipItem.datasetIndex];
+                            const total = dataset.data.reduce((previousValue, currentValue) =>
+                                previousValue + currentValue);
+                            const currentValue = dataset.data[tooltipItem.index];
+                            const percentage = ((currentValue / total) * 100).toFixed(2);
+                            return `${data.labels[tooltipItem.index]}: ${percentage}%`;
+                        }
+                    }
+                },
+                animation: {
+                    animateRotate: true, // Enable rotation animation
+                    animateScale: false, // Disable scale animation
+                }
+            }
+        });
+
+        // Update the pie chart when the input field value changes
+        salaryProfitInput.addEventListener('input', () => {
+            const salaryProfit = parseFloat(salaryProfitInput.value);
+            const fixedCosts = 50 / 100 * salaryProfit;
+            const guiltFreeSpending = 35 / 100 * salaryProfit;
+            const savings = 5 / 100 * salaryProfit;
+            const investments = 10 / 100 * salaryProfit;
+
+            // Generate random colors
+            const randomColors = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()];
+
+            // Update the pie chart data and colors
+            pieChart.data.datasets[0].data = [fixedCosts, guiltFreeSpending, savings, investments];
+            pieChart.data.datasets[0].backgroundColor = randomColors;
+
+            // Update the pie chart
+            pieChart.update();
+        });
+    </script>
+
+    <!-- Modal Cards -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Fixed Costs
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Debt payments</li>
+                            <li>Mortgage / rent</li>
+                            <li>Insurance</li>
+                            <li>Groceries</li>
+                            <li>Exercise (health is wealth)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Guilt-free Spending
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Passion projects</li>
+                            <li>Things you love</li>
+                            <li>Eating out w friends and family</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Savings
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Emergency fund (6 months of fixed costs covered)</li>
+                            <li>Down payment</li>
+                            <li>Vacation plans</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Investments
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Select an ETF</li>
+                            <li>Focus on low cost funds</li>
+                            <li>Activate automatic deposit/invest to the fund</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
