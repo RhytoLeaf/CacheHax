@@ -2,7 +2,6 @@
 
 ![CacheHax Logo](./images/cache-hax-logo.png)
 
-![VISIT HERE](https://rhytoleaf.github.io/CacheHax/)
 
 CacheHax is an innovative financial evaluation app that empowers users to assess their financial health against key benchmarks. Your financial Zenith awaits you!
 
