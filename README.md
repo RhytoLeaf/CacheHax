@@ -1,8 +1,16 @@
 # CacheHax
 
-![CacheHax Logo](your-logo.png)
+![CacheHax Logo](./images/cache-hax-logo.pngcachehax-logo.png)
 
 CacheHax is an innovative financial evaluation app that empowers users to assess their financial health against key benchmarks. Your financial Zenith awaits you!
+
+### DISCLAIMER: 
+
+Please be aware that financial markets and regulations can change rapidly, and the information provided may become outdated. It is your responsibility to verify and update any information before making financial decisions.
+
+By engaging in any discussion or receiving information from me, you acknowledge and agree to these terms and release me from any and all liability, claims, or damages arising from or in connection with the use of the information provided.
+
+If you require personalized financial advice, it is strongly advised to consult with a qualified financial professional who can assess your individual situation and provide appropriate guidance.
 
 ## Features
 
@@ -12,19 +20,12 @@ CacheHax is an innovative financial evaluation app that empowers users to assess
 - **User-Friendly Interface**: Intuitive design for a seamless user experience.
 - **Secure**: Your financial data is kept safe and confidential.
 
-## Getting Started
-
-1. Clone the repository.
-2. Install the required dependencies.
-3. Configure your financial data.
-4. Run the app and start your financial journey!
 
 ## Usage
 
-1. Log in to your account.
-2. Input your financial data.
-3. Explore benchmark analysis and track your progress.
-4. Set and monitor your financial goals.
+1. Enter profit (daily / Monthly / yearly)
+2. Explore our proposed benchmark
+*NOTE: Guilt-free pleasure category is the most overlooked*
 
 ## Technologies Used
 
@@ -42,7 +43,7 @@ If you encounter any issues or have questions, please reach out to our support t
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](RhytoLeaf 2023).
 
 ## Acknowledgments
 

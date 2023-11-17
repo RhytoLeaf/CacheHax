@@ -9,39 +9,49 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #808ea4; /* Background color */
-            color: #212121; /* Text color */
+            background-color: #808ea4;
+            /* Background color */
+            color: #212121;
+            /* Text color */
         }
 
         h1 {
-            color: #00CE7C; /* Header text color */
+            color: #00CE7C;
+            /* Header text color */
         }
 
         /* Input field styling */
         .form-control {
-            background-color: #F2F2F2; /* Input background color */
-            color: #212121; /* Input text color */
+            background-color: #F2F2F2;
+            /* Input background color */
+            color: #212121;
+            /* Input text color */
         }
 
         /* Card styling */
         .card {
-            background-color: #F2F2F2; /* Card background color */
+            background-color: #F2F2F2;
+            /* Card background color */
             border: none;
             margin-bottom: 20px;
         }
 
         .card-header {
-            background-color: #00CE7C; /* Card header background color */
-            color: #F2F2F2; /* Card header text color */
+            background-color: #00CE7C;
+            /* Card header background color */
+            color: #F2F2F2;
+            /* Card header text color */
         }
 
         .card-body {
-            color: #212121; /* Card body text color */
+            color: #212121;
+            /* Card body text color */
         }
 
         /* Chart canvas styling */
         #pieChart {
-            background-color: #F2F2F2; /* Chart background color */
+            background-color: #F2F2F2;
+            /* Chart background color */
         }
 
         /* Center the canvas */
@@ -49,7 +59,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 300px; /* Adjust the height as needed */
+            height: 300px;
+            /* Adjust the height as needed */
         }
     </style>
 </head>
@@ -59,6 +70,57 @@
         <h1 class="text-center">
             <img src="./images/cache-hax-logo.png" width="150px" alt="" style="border-radius: 25%;">
         </h1>
+
+        <!-- Button to trigger the modal -->
+        <div class="text-center mt-4">
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                DISCLAIMER
+            </button>
+        </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+
+                        <div class="text-center mt-4">
+                            <h4 class="modal-title">This is a financial literacy excercise</h4>
+                        </div>
+
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <p>
+                            Please be aware that financial markets and regulations can change rapidly, and the
+                            information provided may become outdated. It is your responsibility to verify and update any
+                            information before making financial decisions.
+                            <br>
+                            By engaging in any discussion or receiving information from me, you acknowledge and agree to
+                            these terms and release me from any and all liability, claims, or damages arising from or in
+                            connection with the use of the information provided.
+                            <br>
+                            If you require personalized financial advice, it is strongly advised to consult with a
+                            qualified financial professional who can assess your individual situation and provide
+                            appropriate guidance.
+                        </p>
+                    </div>
+
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
         <div class="row mt-4">
             <div class="col-md-6 offset-md-3 text-center">
                 <div class="form-group">
@@ -74,6 +136,13 @@
             <canvas id="pieChart"></canvas>
         </div>
     </div>
+
+
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
     <!-- Add Chart.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
