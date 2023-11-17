@@ -1,6 +1,6 @@
 # CacheHax
 
-![CacheHax Logo](./images/cache-hax-logo.pngcachehax-logo.png)
+![CacheHax Logo](./images/cache-hax-logo.png)
 
 CacheHax is an innovative financial evaluation app that empowers users to assess their financial health against key benchmarks. Your financial Zenith awaits you!
 
