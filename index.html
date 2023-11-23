@@ -94,7 +94,7 @@
                     <div class="modal-header">
 
                         <div class="text-center mt-4">
-                            <h4 class="modal-title">This is a financial literacy excercise</h4>
+                            <h4 class="modal-title">This is a financial literacy exercise</h4>
                         </div>
 
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -171,6 +171,24 @@
             return color;
         }
 
+        // Function to format currency
+        function formatCurrency(amount) {
+            return `$${amount.toFixed(2)}`;
+        }
+
+        // Update card headers dynamically
+        function updateCardHeaders(salaryProfit) {
+            const fixedCostsAmount = (50 / 100) * salaryProfit;
+            const guiltFreeSpendingAmount = (35 / 100) * salaryProfit;
+            const savingsAmount = (5 / 100) * salaryProfit;
+            const investmentsAmount = (10 / 100) * salaryProfit;
+
+            document.getElementById('fixedCostsHeader').textContent = `Fixed Costs (${formatCurrency(fixedCostsAmount)})`;
+            document.getElementById('guiltFreeSpendingHeader').textContent = `Guilt-free Spending (${formatCurrency(guiltFreeSpendingAmount)})`;
+            document.getElementById('savingsHeader').textContent = `Savings (${formatCurrency(savingsAmount)})`;
+            document.getElementById('investmentsHeader').textContent = `Investments (${formatCurrency(investmentsAmount)})`;
+        }
+
         // Initialize the pie chart with initial data
         const pieChart = new Chart(pieChartCanvas, {
             type: 'pie',
@@ -217,13 +235,15 @@
             }
         });
 
-        // Update the pie chart when the input field value changes
+        // Update the pie chart and card headers when the input field value changes
         salaryProfitInput.addEventListener('input', () => {
             const salaryProfit = parseFloat(salaryProfitInput.value);
-            const fixedCosts = 50 / 100 * salaryProfit;
-            const guiltFreeSpending = 35 / 100 * salaryProfit;
-            const savings = 5 / 100 * salaryProfit;
-            const investments = 10 / 100 * salaryProfit;
+            updateCardHeaders(salaryProfit);
+
+            const fixedCosts = (50 / 100) * salaryProfit;
+            const guiltFreeSpending = (35 / 100) * salaryProfit;
+            const savings = (5 / 100) * salaryProfit;
+            const investments = (10 / 100) * salaryProfit;
 
             // Generate random colors
             const randomColors = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()];
@@ -235,6 +255,9 @@
             // Update the pie chart
             pieChart.update();
         });
+
+        // Initialize card headers with initial values
+        updateCardHeaders(0); // assuming initial value is 0
     </script>
 
     <!-- Modal Cards -->
@@ -242,7 +265,7 @@
         <div class="row">
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" id="fixedCostsHeader">
                         Fixed Costs
                     </div>
                     <div class="card-body">
@@ -258,7 +281,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" id="guiltFreeSpendingHeader">
                         Guilt-free Spending
                     </div>
                     <div class="card-body">
@@ -272,7 +295,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" id="savingsHeader">
                         Savings
                     </div>
                     <div class="card-body">
@@ -286,7 +309,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" id="investmentsHeader">
                         Investments
                     </div>
                     <div class="card-body">
