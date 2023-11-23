@@ -140,7 +140,7 @@
 
     <div class="container mt-4">
         <div class="chart-container">
-            <canvas id="pieChart"></canvas>
+            <canvas id="pieChart" style="border-radius: 10%; padding: 1.5rem;"></canvas>
         </div>
     </div>
 
@@ -183,10 +183,13 @@
             const savingsAmount = (5 / 100) * salaryProfit;
             const investmentsAmount = (10 / 100) * salaryProfit;
 
-            document.getElementById('fixedCostsHeader').textContent = `Fixed Costs (${formatCurrency(fixedCostsAmount)})`;
-            document.getElementById('guiltFreeSpendingHeader').textContent = `Guilt-free Spending (${formatCurrency(guiltFreeSpendingAmount)})`;
+            document.getElementById('fixedCostsHeader').textContent =
+                `Fixed Costs (${formatCurrency(fixedCostsAmount)})`;
+            document.getElementById('guiltFreeSpendingHeader').textContent =
+                `Guilt-free Spending (${formatCurrency(guiltFreeSpendingAmount)})`;
             document.getElementById('savingsHeader').textContent = `Savings (${formatCurrency(savingsAmount)})`;
-            document.getElementById('investmentsHeader').textContent = `Investments (${formatCurrency(investmentsAmount)})`;
+            document.getElementById('investmentsHeader').textContent =
+                `Investments (${formatCurrency(investmentsAmount)})`;
         }
 
         // Initialize the pie chart with initial data
@@ -324,8 +327,8 @@
         </div>
     </div>
 
-<br><br>
-<footer class="text-center">&copy; Rhytoleaf 2023</footer>
+    <br><br>
+    <footer class="text-center">&copy; Rhytoleaf 2023</footer>
 
 </body>
 
