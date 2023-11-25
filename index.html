@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cache Hax</title>
-  
+
     <!-- Add Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -153,10 +153,20 @@
         const pieChart = new Chart(pieChartCanvas, {
             type: 'pie',
             data: {
-                labels: ['Fixed Costs (50%)', 'Guilt-free Spending (35%)', 'Savings (5%)', 'Investments (10%)'],
+                labels: [
+                    'Fixed Costs (50%)',
+                    'Guilt-free Spending (35%)',
+                    'Savings (5%)',
+                    'Investments (10%)'
+                ],
                 datasets: [{
                     data: [50, 35, 5, 10], // Initial distribution percentages
-                    backgroundColor: ['#FF5733', '#33FF57', '#338AFF', '#FF33C1']
+                    backgroundColor: [
+                        '#FF5733',
+                        '#33FF57',
+                        '#338AFF',
+                        '#FF33C1'
+                    ]
                 }]
             },
             options: {
@@ -206,10 +216,20 @@
             const investments = (10 / 100) * salaryProfit;
 
             // Generate random colors
-            const randomColors = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()];
+            const randomColors = [
+                getRandomColor(),
+                getRandomColor(),
+                getRandomColor(),
+                getRandomColor()
+            ];
 
             // Update the pie chart data and colors
-            pieChart.data.datasets[0].data = [fixedCosts, guiltFreeSpending, savings, investments];
+            pieChart.data.datasets[0].data = [
+                fixedCosts,
+                guiltFreeSpending,
+                savings,
+                investments
+            ];
             pieChart.data.datasets[0].backgroundColor = randomColors;
 
             // Update the pie chart
@@ -265,8 +285,8 @@
                         </ul>
                     </div>
 
-                    
-                    
+
+
                 </div>
             </div>
             <div class="col-md-3">
@@ -293,7 +313,7 @@
 
 
     <!-- Perspective -->
-
+<!-- 
     <hr>
 
     <div style="text-align: center; padding: 1rem;">
@@ -309,9 +329,9 @@
 
         <p>The 🇨🇦 National average in 2023 is <b>$68,400 after taxes</b></p>
 
-    </div>
+    </div> 
 
-
+-->
     <br><br>
 
 
@@ -322,6 +342,12 @@
 
     <br><br>
     <footer class="text-center">&copy; Rhytoleaf Inc.</footer>
+
+
+
+    <!-- adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4298895490101974"
+     crossorigin="anonymous"></script>
 
 </body>
 
