@@ -47,6 +47,7 @@ h1 {
 #pieChart {
     background-color: #F2F2F2;
     /* Chart background color */
+    
 }
 
 /* Center the canvas */
@@ -56,4 +57,6 @@ h1 {
     align-items: center;
     height: 300px;
     /* Adjust the height as needed */
+
+    
 }
