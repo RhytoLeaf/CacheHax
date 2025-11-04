@@ -22,8 +22,93 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 
+
     <!-- custom -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #808ea4;
+            /* Background color */
+            color: #212121;
+            /* Text color */
+        }
+
+        .card-header {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        h1 {
+            color: #00CE7C;
+            /* Header text color */
+        }
+
+        /* Input field styling */
+        .form-control {
+            background-color: #F2F2F2;
+            /* Input background color */
+            color: #212121;
+            /* Input text color */
+        }
+
+        /* Card styling */
+        .card {
+            background-color: #F2F2F2;
+            /* Card background color */
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #00CE7C;
+            /* Card header background color */
+            color: #F2F2F2;
+            /* Card header text color */
+        }
+
+        .card-body {
+            color: #212121;
+            /* Card body text color */
+        }
+
+        /* Chart canvas styling */
+        #pieChart {
+            background-color: #F2F2F2;
+            /* Chart background color */
+            
+        }
+
+        /* Center the canvas */
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+            /* Adjust the height as needed */
+
+            
+        }
+
+
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+
+            .card-header {
+                font-size: 20px;
+            }
+
+            .form-control {
+                font-size: 18px;
+            }
+
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -34,6 +119,8 @@
         <h1 class="text-center">
             <img src="./images/cache-hax-logo.png" width="150px" alt="" style="border-radius: 25%;">
         </h1>
+
+
 
         <!-- Button to trigger the modal -->
         <div class="text-center mt-4">
@@ -126,15 +213,12 @@
         const salaryProfitInput = document.getElementById('salaryProfit');
         const pieChartCanvas = document.getElementById('pieChart').getContext('2d');
 
-        // Function to generate random colors
-        function getRandomColor() {
-            const letters = '0123456789ABCDEF';
-            let color = '#';
-            for (let i = 0; i < 6; i++) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
+        const contrastingColors = [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56',
+            '#4BC0C0'
+        ];
 
         // Function to format currency
         function formatCurrency(amount) {
@@ -169,12 +253,7 @@
                 ],
                 datasets: [{
                     data: [50, 35, 5, 10], // Initial distribution percentages
-                    backgroundColor: [
-                        '#FF5733',
-                        '#33FF57',
-                        '#338AFF',
-                        '#FF33C1'
-                    ]
+                    backgroundColor: contrastingColors
                 }]
             },
             options: {
@@ -223,14 +302,6 @@
             const savings = (5 / 100) * salaryProfit;
             const investments = (10 / 100) * salaryProfit;
 
-            // Generate random colors
-            const randomColors = [
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor(),
-                getRandomColor()
-            ];
-
             // Update the pie chart data and colors
             pieChart.data.datasets[0].data = [
                 fixedCosts,
@@ -238,14 +309,40 @@
                 savings,
                 investments
             ];
-            pieChart.data.datasets[0].backgroundColor = randomColors;
+            pieChart.data.datasets[0].backgroundColor = contrastingColors;
 
             // Update the pie chart
             pieChart.update();
+
+            // Update card header colors
+            const cardHeaders = [
+                document.getElementById('fixedCostsHeader'),
+                document.getElementById('guiltFreeSpendingHeader'),
+                document.getElementById('savingsHeader'),
+                document.getElementById('investmentsHeader')
+            ];
+
+            cardHeaders.forEach((header, index) => {
+                header.style.backgroundColor = contrastingColors[index];
+            });
         });
 
         // Initialize card headers with initial values
         updateCardHeaders(0); // assuming initial value is 0
+
+        const initialColors = pieChart.data.datasets[0].backgroundColor;
+        const cardHeaders = [
+            document.getElementById('fixedCostsHeader'),
+            document.getElementById('guiltFreeSpendingHeader'),
+            document.getElementById('savingsHeader'),
+            document.getElementById('investmentsHeader')
+        ];
+
+        cardHeaders.forEach((header, index) => {
+            header.style.backgroundColor = initialColors[index];
+        });
+
+
     </script>
 
     <!-- Modal Cards -->
